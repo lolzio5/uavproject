@@ -1,6 +1,6 @@
 # uavproject
 
-This project uses Yolov3-tiny to detect obstacles on images using the detect.py file. It is currently trained for a forest environment with numerous trees. 
+This project uses Yolov3-tiny to detect obstacles on images using the detect.py file. It is currently trained for a forest environment with numerous trees. This can be seen on the demonstration1.mp4 file. 
 
 The plan.py file is then able to plan the most efficient path around an obstacle, and prints it out. 
 
