@@ -10,10 +10,8 @@ confthres=0.5
 nmsthres=0.1
 path="./"
 def get_labels(labels_path):
-    # load the COCO class labels our YOLO model was trained on
-    #labelsPath = os.path.sep.join([yolo_path, "yolo_v3/coco.names"])
-    lpath=os.path.sep.join(["/Users/loleziov2022/Desktop/uavproject", "cfg/obstacle.names"])
-    LABELS = open(lpath).read().strip().split("\n")
+    # Read the name of the objects to detect (obstacles)
+    LABELS = open(labels_path).read().strip().split("\n")
     return LABELS
 
 def get_colors(LABELS):
@@ -21,15 +19,6 @@ def get_colors(LABELS):
     np.random.seed(42)
     COLORS = np.random.randint(0, 255, size=(len(LABELS), 3),dtype="uint8")
     return COLORS
-
-def get_weights(weights_path):
-    # derive the paths to the YOLO weights and model configuration
-    weightsPath = os.path.sep.join(["/Users/loleziov2022/Desktop/uavproject", weights_path])
-    return weightsPath
-
-def get_config(config_path):
-    configPath = os.path.sep.join(["/Users/loleziov2022/Desktop/uavproject", config_path])
-    return configPath
 
 def load_model(configpath,weightspath):
     # load our YOLO object detector trained on COCO dataset (80 classes)
@@ -51,7 +40,6 @@ def get_predection(image,net,LABELS,COLORS):
     net.setInput(blob)
     start = time.time()
     layerOutputs = net.forward(ln)
-    #print(layerOutputs)
     end = time.time()
 
     # show timing information on YOLO
@@ -119,14 +107,16 @@ def get_predection(image,net,LABELS,COLORS):
 
 def main():
     # load our input image and grab its spatial dimensions
+    # Obstacle name path
     labelsPath="cfg/obstacle.names"
+    # YOLO Config file path
     cfgpath="cfg/yolov3-tiny.cfg"
+    # Custom YOLO Weights File
     wpath="cfg/yolov3-tiny_last.weights"
-    Lables=get_labels(labelsPath)
-    CFG=get_config(cfgpath)
-    Weights=get_weights(wpath)
-    nets=load_model(CFG,Weights)
-    Colors=get_colors(Lables)
+   
+    Labels=get_labels(labelsPath)
+    nets=load_model(cfgpath,wpath)
+    Colors=get_colors(Labels)
     vidcap=cv2.VideoCapture("/Users/loleziov2022/Desktop/test_data/film4.MOV")
     for i, time in enumerate(range(0, 3000, 100)):
         vidcap.set(cv2.CAP_PROP_POS_MSEC, time)
@@ -134,14 +124,6 @@ def main():
         res=get_predection(image,nets,Lables,Colors)
         print(boxes)
         print(get_angles(boxes))
-        #return(boxes)
-        
-    
-    # image=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
-    # show the output image
-    #cv2.imshow("Image", res)
-    #cv2.waitKey()
-    #return(boxes)
     
 if __name__== "__main__":
   
