@@ -1,5 +1,7 @@
 # Project UAV
 
+_Project last continued February 2022_
+
 This project aimed to answer the research question "How can we make obstacle avoidance faster?", focusing on providing an autonomous, on-board obstacle detection and avoidance solution for small Unmanned Aerial Vehicles (UAVs).
 
 This project consisted of two parts. The first was rewarded at the Vienna International Science Fair 2021 with the Superior Ribbon (the highest distinction achievable), as well as the Best in Category Mathematics and Computer Science Award and the Best in Division (14 Year old and above) Award, making it the overall winner of the Vienna International Science Fair 2021.
@@ -68,5 +70,12 @@ The advantage of this solution is the very low computational cost, as it is a ve
 
 <br>
 
+---
 
 ## Further work and improvement
+
+The project can be further improved, by allowing the drone to avoid obstacles by flying higher or lower, which has not yet been implemented in the path planning algorithm. Moreover, the project must be extensively tested in a physical build. 
+
+<br>
+
+Preliminary research has been conducted on how to build a prototype. Data was collected to determine how to build a faster UAV, studying materials engineering and aerodynamics of quadcopters. This must, however, be put into action and fully tested at a scale.
