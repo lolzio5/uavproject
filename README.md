@@ -78,4 +78,4 @@ The project can be further improved, by allowing the drone to avoid obstacles by
 
 <br>
 
-Preliminary research has been conducted on how to build a prototype. Data was collected to determine how to build a faster UAV, studying materials engineering and aerodynamics of quadcopters. This must, however, be put into action and fully tested at a scale.
+To build a prototype of a physical UAV, preliminary research has been conducted. The report for this can be read in the file [Lolézio Viora Marquet EE.pdf](https://github.com/lolzio5/uavproject/blob/main/Lolézio%20Viora%20Marquet%20EE.pdf). Data was collected to determine how to build a faster UAV, studying materials engineering and aerodynamics of quadcopters. This must, however, be put into action and fully tested at a scale.
